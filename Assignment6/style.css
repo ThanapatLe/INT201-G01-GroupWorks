@@ -1,0 +1,20 @@
+div.card {
+    width: 400px;
+    height: auto;
+    margin: 15px;
+    text-align: center;
+    border: solid 2px rgb(73, 19, 161);
+    padding: 20px;
+}
+
+div img{
+    max-width: 350px;
+    max-height: 300px;
+    margin: 50px 0;
+}
+
+div#product {
+    display: flex;
+    flex-wrap: wrap;
+    
+}

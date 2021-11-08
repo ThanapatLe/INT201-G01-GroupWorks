@@ -1,4 +1,4 @@
-export let cart = {
+export let cart = { //export cart ออกไปเพื่อใช้งานใน file อื่น
     prods: [],
     prodID: [],
     total: 0

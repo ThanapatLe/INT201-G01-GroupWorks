@@ -29,7 +29,7 @@ function render(product) {
     // pic.setAttribute("class","card-img-top")
 
     let divCol = document.createElement("div");
-    divCol.setAttribute("class", "col card")
+    divCol.setAttribute("class", "card")
     let pe = document.createElement("p");
     //   dic.setAttribute("style","width : 350px ");
     //   dic.setAttribute("style","margin : 10px");

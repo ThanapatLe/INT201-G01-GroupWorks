@@ -1,5 +1,7 @@
 import { products } from "./product.js";  //เรียกใช้ obj จาก "src",prod.img.js
 import { Add, cart } from "./add.js";     //ดึง Element ที่มีไอดีเป็น  product แล้ว
+import { CookieUtil } from "./cookie.js";
+
 // let str = ""
 const Pro = document.querySelector("#product"); //ดึง Element ที่มีไอดีเป็น  product แล้ว
 
@@ -10,10 +12,18 @@ let yourCart = document.createElement("img") //สร้าง tag ชื่อ 
 yourCart.setAttribute("src", "shopping-cart.png") //ให้  youCart มี Attribute ที่ชื่อ id ให้มีค่าเท่ากับ scart
 yourCart.setAttribute("width", "40px")  //ให้ youCart มี Attribute ที่ชื่อ width ให้มีค่าเท่ากับ 40px
 let qty = document.createElement("p")  //สร้าง tag ชื่อ p ในตัวแปร qty
-qty.innerHTML = `Your Cart : 0` //สร้าง Inner HTML ขึ้นมาเป็น `Your Cart : 0`
+// qty.innerHTML = `Your Cart : 0` //สร้าง Inner HTML ขึ้นมาเป็น `Your Cart : 0`
+qty.innerHTML = `Your Cart : ${CookieUtil.get("total") ||0}` //สร้าง Inner HTML ขึ้นมาเป็น `Your Cart : 0`
+let removeBut = document.createElement("button")
+removeBut.setAttribute("id","remove")
+removeBut.addEventListener("click",() => {
+  CookieUtil.deleteAllCookies();
+  window.location.reload();
+})
 
 nav.appendChild(yourCart) //นำ tag ของตัวแปร youCart ไปไว้ใน tag ของตัวแปร nav
 nav.appendChild(qty) //นำ tag ของตัวแปร qty ไปไว้ใน tag ของตัวแปร nav
+nav.appendChild(removeBut)
 
 function render(product) { // function render ที่มี parameter product ที่สร้าง tag div มี class เป็น row
   Pro.innerHTML = " ";
@@ -55,7 +65,8 @@ function render(product) { // function render ที่มี parameter product 
       } else {
         alert(`add product : ${keyboard.productName}, ID : ${but.id} to cart`);
         Add(keyboard)
-        qty.innerHTML = `Your Cart : ${cart.total}`
+        qty.innerHTML = `Your Cart : ${CookieUtil.get("total")}`
+
       };
     });
 

@@ -16,11 +16,18 @@ function toggle() { //function toggle ซึ่งจะซ่อนอยู่
     form.setAttribute("class",'d-none');
   }
 }
+
 function search(text){ //function search ที่ทำการรับ parameter เป็น text โดยที่มีการเช็ค ถ้าหากสิ่งที่รับมาตรงกับสินค้าก็จะแสดงสินค้า 
     if(text.length != 0){
         let item = products.filter((p)=> p.productName.toLowerCase().includes(text.toLowerCase()));
-        // console.log(item);
+        console.log(item);
         render(item);
     }
 }
+
+// function showProduct(text){
+//   if(text.length = 0){
+//     render(products);
+//   }
+// }
 

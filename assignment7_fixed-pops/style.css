@@ -1,0 +1,25 @@
+/* div.card {
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 400px;
+    max-height: 400px;
+    margin: 15px 0px 15px 30px;
+    padding: 20px;
+    border: solid 2px rgb(73, 19, 161);
+} */
+
+/* div img{
+    max-width: 350px;
+    max-height: 300px;
+    margin: 50px 0;
+}
+
+div#product {
+    display: flex;
+    flex-wrap: wrap;
+    
+} */
+
+body{
+    background-color:steelblue;
+}

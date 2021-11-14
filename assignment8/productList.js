@@ -1,16 +1,17 @@
 import { products } from "./product.js";
 import { AddToCart, cart } from "./add.js";  
 import { CookieUtil } from "./cookie.js";
-// import { changeStatus } from "./theme.js";
+import { changeStatus } from "./theme.js";
 
 // let str = ""
 export let inBody = document.querySelector("body");
-
+inBody.setAttribute("style","background-color: steelblue");
 
 //navbar
-let navbar1 = document.createElement("nav");
+export let navbar1 = document.createElement("nav");
 navbar1.setAttribute("id","navtop");
 navbar1.setAttribute("class","navbar navbar-scroll navbar-expand-lg navbar-light bg-light");
+// navbar1.setAttribute("style","background-Color:white")
 
 //div of nav to control div in 
 let divInDiv1 = document.createElement("div");
@@ -22,6 +23,7 @@ divInNav1.setAttribute("class","d-flex");
 
 //all of component in div1 {
 let picInNav1 = document.createElement("img");
+picInNav1.setAttribute("class","me-4");
 picInNav1.setAttribute("id","search-icon");
 picInNav1.setAttribute("src","search.png");
 picInNav1.setAttribute("height","40px");
@@ -38,11 +40,11 @@ inputInNav1.setAttribute("type","search");
 
 let butInNav1 = document.createElement("a");
 butInNav1.setAttribute("id","search-btn");
-butInNav1.setAttribute("class","btn btn-outline-success me-4")
+butInNav1.setAttribute("class","btn btn-info me-4")
 butInNav1.setAttribute("type","submit");
 butInNav1.innerHTML = "Search";
 
-let themeBut = document.createElement("button")
+export let themeBut = document.createElement("button")
 themeBut.innerHTML = "DARK";
 themeBut.setAttribute("class","btn btn-dark me-4");
 themeBut.setAttribute("id","check");
@@ -109,33 +111,13 @@ divInNav2.appendChild(qtyInNav);
 export let divOut = document.createElement("div");
 divOut.setAttribute("id","product");
 
-// export let qtyInNav = document.createElement("p");  //สร้าง tag ชื่อ p ในตัวแปร qty
-// qtyInNav.setAttribute("class","d-flex me-2");
-// qtyInNav.innerHTML = `Your Cart : ${CookieUtil.get("total") ||0} `;
-// // qtyInNav.innerHTML = `Your Cart : ${cart.total} `;
-
-// export let removeBut = document.createElement("button")
-// removeBut.setAttribute("class","btn btn-danger me-4")
-// removeBut.setAttribute("id","remove")
-// removeBut.innerHTML = `CLEAR <br> CART `;
-// removeBut.addEventListener("click",() => {
-//   CookieUtil.deleteAllCookies();
-//   // CookieUtil.unset("empty");
-//   window.location.reload();
-// })
-
-// export let themeBut = document.createElement("button")
-// themeBut.innerHTML = "DARK";
-// themeBut.setAttribute("class","btn btn-dark me-4");
-// themeBut.setAttribute("id","check");
-// themeBut.addEventListener("click",() => {
-//     changeStatus();
-// })
 
 function render(product){
   divOut.innerHTML = " ";
   let divInOut = document.createElement("div");
   divInOut.setAttribute("class","row");
+  divInOut.setAttribute("id","rowOfCard");
+
 
 for(let prod of product) {
 
@@ -143,8 +125,8 @@ for(let prod of product) {
   let divColIn = document.createElement("div");
   divColIn.setAttribute("class","col col-xxl-4");
   
-
   let divIn = document.createElement("div");
+  divIn.setAttribute("id","allCard");
   divIn.setAttribute("class","card");
   divIn.setAttribute("style",
   "width: 18rem ;min-width: 400px; max-width: 400px; min-height: 400px; max-height: 400px; margin: 20px 0px 0px 30px; padding: 20px; ");
@@ -200,7 +182,6 @@ for(let prod of product) {
   divInOut.appendChild(divColIn);
   divOut.appendChild(divInOut)
   inBody.appendChild(divOut);
-
 }
 }
 
@@ -209,3 +190,29 @@ for(let prod of product) {
 render(products); //function render ที่รับ parameter เป็น products
 
 export { render }; //export render เพื่อออกมาใช้ใน file อื่นได้
+
+
+
+
+// export let qtyInNav = document.createElement("p");  //สร้าง tag ชื่อ p ในตัวแปร qty
+// qtyInNav.setAttribute("class","d-flex me-2");
+// qtyInNav.innerHTML = `Your Cart : ${CookieUtil.get("total") ||0} `;
+// // qtyInNav.innerHTML = `Your Cart : ${cart.total} `;
+
+// export let removeBut = document.createElement("button")
+// removeBut.setAttribute("class","btn btn-danger me-4")
+// removeBut.setAttribute("id","remove")
+// removeBut.innerHTML = `CLEAR <br> CART `;
+// removeBut.addEventListener("click",() => {
+//   CookieUtil.deleteAllCookies();
+//   // CookieUtil.unset("empty");
+//   window.location.reload();
+// })
+
+// export let themeBut = document.createElement("button")
+// themeBut.innerHTML = "DARK";
+// themeBut.setAttribute("class","btn btn-dark me-4");
+// themeBut.setAttribute("id","check");
+// themeBut.addEventListener("click",() => {
+//     changeStatus();
+// })

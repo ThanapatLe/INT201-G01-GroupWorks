@@ -1,6 +1,7 @@
 import { products } from "./product.js";
 import { AddToCart, cart } from "./add.js";  
 import { CookieUtil } from "./cookie.js";
+// import { changeStatus } from "./theme.js";
 
 // let str = ""
 export let inBody = document.querySelector("body");
@@ -9,7 +10,26 @@ divOut.setAttribute("id","product");
 
 export let qtyInNav = document.createElement("p");  //สร้าง tag ชื่อ p ในตัวแปร qty
 qtyInNav.setAttribute("class","d-flex me-2");
-qtyInNav.innerHTML = `Your Cart : 0`;
+qtyInNav.innerHTML = `Your Cart : ${CookieUtil.get("total") ||0} `;
+// qtyInNav.innerHTML = `Your Cart : ${cart.total} `;
+
+export let removeBut = document.createElement("button")
+removeBut.setAttribute("class","btn btn-danger me-4")
+removeBut.setAttribute("id","remove")
+removeBut.innerHTML = `CLEAR <br> CART `;
+removeBut.addEventListener("click",() => {
+  CookieUtil.deleteAllCookies();
+  // CookieUtil.unset("empty");
+  window.location.reload();
+})
+
+// export let themeBut = document.createElement("button")
+// themeBut.innerHTML = "DARK";
+// themeBut.setAttribute("class","btn btn-dark me-4");
+// themeBut.setAttribute("id","check");
+// themeBut.addEventListener("click",() => {
+//     changeStatus();
+// })
 
 function render(product){
   divOut.innerHTML = " ";
@@ -64,7 +84,9 @@ for(let prod of product) {
       } else {
         alert(`add product : ${prod.productName}, ID : ${butCard.id} to cart`);
         AddToCart(prod);
-        qtyInNav.innerHTML = `Your Cart : ${cart.total}`
+        qtyInNav.innerHTML = `Your Cart : ${CookieUtil.get("total")}`;
+        // qtyInNav.innerHTML = `Your Cart : ${cart.total}`;
+        
       };
     });
    
@@ -80,6 +102,8 @@ for(let prod of product) {
 
 }
 }
+
+
 
 render(products); //function render ที่รับ parameter เป็น products
 

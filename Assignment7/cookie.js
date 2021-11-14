@@ -1,3 +1,4 @@
+
 //1. string.indexOf(searchvalue, start)
 //return an index number here the specified searchvalue occurs for the first time,
 //or -1 if it never occurs

@@ -27,7 +27,7 @@ export class CookieUtil {
     CookieUtil.set(name, "", new Date(0));
   }
   static deleteAllCookies() {
-    const cookies = document.cookie.split(";");
+    const cookies = document.cookie.split(";");//เช็คว่าถ้ามี ; จะทำแบ่งมูลออกเป็นอีกตำแหน่ง indexนึง เช่น [1;2,0] จะเป็น [1,2,0]
     for (const cookie of cookies) {
       const eqPos = cookie.indexOf("=");
       const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;

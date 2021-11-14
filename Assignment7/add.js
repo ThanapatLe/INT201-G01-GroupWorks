@@ -1,10 +1,10 @@
-import { CookieUtil } from "/cookie.js";
+import { CookieUtil } from "./cookie.js";
+
 export let cart = { //export cart ออกไปเพื่อใช้งานใน file อื่น
     prods: [],
     prodID: [],
     total: 0
 }
-
 
 export function Add(keyboard){
     if(!cart.prodID.includes(keyboard.productId)){ //includes() ใช้ในการเช็คว่าสิ่งที่อยู่ในวงเล็บมีอยู่ใน array ไหม}

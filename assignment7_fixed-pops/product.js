@@ -5,7 +5,7 @@ let products = [
     productDesc: "wiress mechanical keyboard",
     productPrice: "9,590 ฿",
     img: "K001.jpg",
-    stock: 10,
+    stock: 0,
   },
   {
     productId: "A002",

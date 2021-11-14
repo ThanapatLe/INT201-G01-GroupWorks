@@ -1,5 +1,5 @@
 import {products} from './product.js';
-import {inBody, divOut, qtyInNav, render} from "./productList.js";
+import {inBody, divOut, qtyInNav, render, removeBut} from "./productList.js";
 
 //navbar
 let navbar1 = document.createElement("nav");
@@ -32,7 +32,7 @@ inputInNav1.setAttribute("type","search");
 
 let butInNav1 = document.createElement("a");
 butInNav1.setAttribute("id","search-btn");
-butInNav1.setAttribute("class","btn btn-outline-success")
+butInNav1.setAttribute("class","btn btn-outline-success me-4")
 butInNav1.setAttribute("type","submit");
 butInNav1.innerHTML = "Search";
 //}
@@ -53,20 +53,26 @@ picInNav2.setAttribute("height","40px");
 // quantityInNav.innerHTML = `Your Cart : 0`;
 //}
 
+// body{navbar1{divOut}}
 inBody.insertBefore(navbar1,divOut);
-
+// navbar1{divInDiv1}
 navbar1.appendChild(divInDiv1);
 
+// divInDiv1{divInNav1{picInNav1,formInNav1,themeBut}}
 divInDiv1.appendChild(divInNav1);
 divInNav1.appendChild(picInNav1);
 divInNav1.appendChild(formInNav1);
+// divInNav1.appendChild(themeBut);
 
+//formInNav1{inputInNav1,butInNav1}
 formInNav1.appendChild(inputInNav1);
 formInNav1.appendChild(butInNav1);
 
+// divInDiv1{divInNav1{},divInNav2{removeBut,picInNav2,qtyInNav}}
 divInDiv1.appendChild(divInNav2);
 divInNav2.appendChild(picInNav2);
 divInNav2.appendChild(qtyInNav);
+divInNav2.insertBefore(removeBut,picInNav2);
 
 let icon = document.querySelector("#search-icon"); //ดึง Element ที่มีไอดีเป็น search-icon แล้วเก็บไว้ใน icon
 let form = document.querySelector("#form-search"); //ดึง Element ที่มีไอดีเป็น form-search แล้วเก็บไว้ใน form

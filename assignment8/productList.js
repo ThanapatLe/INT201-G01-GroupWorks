@@ -66,7 +66,7 @@ divInNav2.setAttribute("class","d-flex");
   removeBut.innerHTML = `CLEAR <br> CART `;
   removeBut.addEventListener("click",() => {
     CookieUtil.deleteAllCookies();
-    // CookieUtil.unset("empty");
+    // CookieUtil.unset(a);
     window.location.reload();
   })
 
@@ -153,7 +153,7 @@ for(let prod of product) {
    
   let butCard = document.createElement("button");
     butCard.setAttribute("id", prod.productId);
-    butCard.setAttribute("class", "btn btn-outline-primary");
+    butCard.setAttribute("class", "btn btn-primary");
     butCard.innerHTML = "Add to Cart";
 
     let clicked = 0

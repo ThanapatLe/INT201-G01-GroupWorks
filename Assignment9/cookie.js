@@ -13,16 +13,15 @@ export class CookieUtil {
       let cookieName = `${encodeURIComponent(name)}=`,
         cookieStart = document.cookie.indexOf(cookieName),
         cookieValue = null;
-      // console.log(`cookieName = ${cookieName}`);//ไว้แสดงข้อมูลใน log ไม่มีผลกับ CODE!
-      // console.log(`cookieStart = ${cookieStart}`);//ไว้แสดงข้อมูลใน log ไม่มีผลกับ CODE!
+      console.log(`cookieName = ${cookieName}`);//ไว้แสดงข้อมูลใน log ไม่มีผลกับ CODE!
+      console.log(`cookieStart = ${cookieStart}`);//ไว้แสดงข้อมูลใน log ไม่มีผลกับ CODE!
 
-      let cookieEnd = document.cookie.indexOf(';', cookieStart);
-      cookieEnd = document.cookie.length;
+    
       if (cookieStart > -1) {
         let cookieEnd = document.cookie.indexOf(';', cookieStart);
         console.log(`cookieEnd = ${cookieEnd}`);//ไว้แสดงข้อมูลใน log ไม่มีผลกับ CODE!
         if (cookieEnd == -1) {
-          cookieEnd = document.cookie.length;
+         cookieEnd = document.cookie.length;
         }
         cookieValue = decodeURIComponent(
           document.cookie.substring(cookieStart + cookieName.length, cookieEnd)
@@ -53,7 +52,7 @@ export class CookieUtil {
         for (const cookie of cookies) {
           const eqPos = cookie.indexOf("=");
           const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-          document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
         }
         
       }

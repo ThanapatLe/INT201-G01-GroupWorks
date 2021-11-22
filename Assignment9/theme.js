@@ -1,4 +1,4 @@
-import { totalCart } from "./navbar.js";
+
 import { CookieUtil } from "./cookie.js"; 
 
 
@@ -19,7 +19,7 @@ export function screenMode() {
         navbar.setAttribute('style','background-color:#864879');
         clearButton.setAttribute('style','background-color:#E9A6A6; border-width:1px;');
         clearButton.innerHTML =  `<a style="color:black">Clear Cart</a>`;
-        totalCart.innerHTML = `<p class="mt-1.5" style="color:black"><b>total : ${CookieUtil.get("total") || 0}</b></p>`;
+        
 
         allAdd.forEach((add) => {
             add.setAttribute('style','background-color:#E9A6A6');
@@ -38,7 +38,7 @@ export function screenMode() {
         navbar.setAttribute('style','background-color:#445b6d');
         clearButton.setAttribute('style','background-color:#d1c8bb; border-width:1px');
         clearButton.innerHTML =  `<a style="color:black">Clear Cart</a>`;
-        totalCart.innerHTML = `<p class="mt-1.5" style="color:white"><b>total : ${CookieUtil.get("total") || 0}</b></p>`;
+        
             
         allAdd.forEach((add) => {
             add.setAttribute('style','background-color:#9db2c5;color:white') 
